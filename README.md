@@ -1,50 +1,41 @@
-[![Build Status](http://runbot.odoo.com/runbot/badge/flat/1/10.0.svg)](http://runbot.odoo.com/runbot)
-[![Tech Doc](http://img.shields.io/badge/10.0-docs-875A7B.svg?style=flat)](http://www.odoo.com/documentation/10.0)
-[![Help](http://img.shields.io/badge/10.0-help-875A7B.svg?style=flat)](https://www.odoo.com/forum/help-1)
-[![Nightly Builds](http://img.shields.io/badge/10.0-nightly-875A7B.svg?style=flat)](http://nightly.odoo.com/)
+### Database recovery
 
-Odoo
-----
+For localhost， input below link in your browser:
 
-Odoo is a suite of web based open source business apps.
-
-The main Odoo Apps include an <a href="https://www.odoo.com/page/crm">Open Source CRM</a>,
-<a href="https://www.odoo.com/page/website-builder">Website Builder</a>,
-<a href="https://www.odoo.com/page/e-commerce">eCommerce</a>,
-<a href="https://www.odoo.com/page/warehouse">Warehouse Management</a>,
-<a href="https://www.odoo.com/page/project-management">Project Management</a>,
-<a href="https://www.odoo.com/page/accounting">Billing &amp; Accounting</a>,
-<a href="https://www.odoo.com/page/point-of-sale">Point of Sale</a>,
-<a href="https://www.odoo.com/page/employees">Human Resources</a>,
-<a href="https://www.odoo.com/page/lead-automation">Marketing</a>,
-<a href="https://www.odoo.com/page/manufacturing">Manufacturing</a>,
-<a href="https://www.odoo.com/page/purchase">Purchase Management</a>,
-<a href="https://www.odoo.com/#apps">...</a>
-
-Odoo Apps can be used as stand-alone applications, but they also integrate seamlessly so you get
-a full-featured <a href="https://www.odoo.com">Open Source ERP</a> when you install several Apps.
+http://localhost:8069/web/database/manager
 
 
-Getting started with Odoo
--------------------------
-For a standard installation please follow the <a href="https://www.odoo.com/documentation/10.0/setup/install.html">Setup instructions</a>
-from the documentation.
 
-If you are a developer you may type the following command at your terminal:
+get the database files(including attachment files)
 
-    wget -O- https://raw.githubusercontent.com/odoo/odoo/10.0/setup/setup_dev.py | python
+please contact to mike for this database.
 
-Then follow <a href="https://www.odoo.com/documentation/10.0/tutorials.html">the developer tutorials</a>
+### how to launch your server?
+
+Before start, you need to：
+
+* install python2.7， including of pip。
+
+* install postgresql database with version 9.5 and above(安装9.5以上版本的postgresql)
+
+Then install some dependicies（安装python的依赖包）：
+
+firstoff, install the pip(please google it on how to install pip)
+
+```
+pip install -r ./requirements.txt
+```
+
+In the project root, run below command directly:
+
+```
+启动命令如下:
+
+./odoo-bin --db_user odoo_master --db_password db_password --db_host localhost --db_port 5432 --addons-path="addons,extra-addons" --db-filter=odoo_develop  --save --dev=reload
+```
+
+### 如何还原数据库
 
 
-For Odoo employees
-------------------
 
-To add the odoo-dev remote use this command:
-
-    $ ./setup/setup_dev.py setup_git_dev
-
-To fetch odoo merge pull requests refs use this command:
-
-    $ ./setup/setup_dev.py setup_git_review
 

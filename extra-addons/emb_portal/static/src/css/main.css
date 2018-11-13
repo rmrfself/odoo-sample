@@ -1,0 +1,252 @@
+.mt0 {
+    margin-top: 0;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.ml10 {
+    margin-left: 10px;
+}
+
+.ml15 {
+    margin-left: 15px;
+}
+
+.pr10 {
+    padding-right: 10px;
+}
+
+.mb0{
+    margin-bottom: 0;
+}
+
+.ml15 {
+     margin-left: 15px;
+}
+
+.pb15 {
+    padding-bottom: 15px;
+}
+
+.nopadding {
+    padding: 0 !important
+}
+
+.service-category .row {
+    margin: 15px 0;
+}
+
+.service-category .category {
+    border: 1px solid rgb(167, 167, 167);
+    padding: 5px 0;
+    border-radius: 8px;
+}
+
+.service-category .text-muted {
+    color: rgb(63, 61, 61);
+}
+
+.service-category h5 {
+    font-size: 1.2em;
+    padding: 0 10px;
+    color: #333333;
+}
+
+#garmentTable tr td {
+    min-height: 80px;
+}
+
+.table-responsive{
+    overflow-y: autho;
+    max-height: 200px;
+}
+
+.lightSlider li {
+    border: 1px solid #c0bfbf;
+    border-radius: 5px;
+}
+
+.lightSlider li.current {
+    border: 1px solid grey;
+}
+
+.lightSlider li.current .fa-pencil-square-o {
+    font-size: 20px;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: chartreuse;
+}
+
+.lside-ai{
+    overflow: hidden;
+}
+
+.lside-ai svg {
+    overflow:visible;
+    width: 80px;
+    height: 80px;
+    transform: translate(0, 0) scale(1);
+}
+
+.lside-dst svg {
+    overflow:visible;
+    width: 40px;
+    height: 40px;
+    transform: translate(80%, 80%) scale(0.6);
+}
+
+#logo-editor {
+    position: relative;
+}
+
+.editable-logo {
+    display: block;
+    position: absolute;
+    list-style: none;
+}
+
+.editable-logo svg {
+    overflow:visible;
+    width: 60px;
+    height: 60px;
+    transform: translate(50%, 50%);
+}
+
+.canvas-container {
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+#category-bar  .panel .panel-body {
+    padding: 10px;
+}
+
+.logo-panel .navbar-form , .garment-panel .navbar-form {
+    padding: 0;
+    margin-top: 12px;
+}
+
+.logo-panel .navbar-brand, .garment-panel .navbar-brand{
+    font-size: 12px;
+}
+
+.garment_pic {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    top: 0;
+    text-align: center;
+}
+
+.garment_pic img {
+    max-width: 480px;
+}
+
+.canvas-container {
+    z-index: 99;
+}
+
+#op-content {
+    min-height: 700px;
+}
+
+#grouped-garments {
+    position: absolute;
+    width: 50px;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+}
+
+#grouped-garments a {
+    border: 1px solid #c0bfbf;
+    display: block;
+    padding: 2px;
+    border-radius: 6px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+#grouped-garments a.current {
+    border: 1px solid #888888;
+}
+
+#grouped-garments a img {
+    border-radius: 6px;
+}
+
+.modal-dialog, .modal {
+    
+}
+
+#garment_colors {
+    display: none;
+    min-height: 100px;
+    position: relative;
+}
+
+#garment_colors a {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    display: block;
+}
+
+#zoom-bar {
+    position: absolute;
+    bottom: 35px;
+    left: 15px;
+    z-index: 99;
+}
+
+#zoom-bar span {
+    padding: 0 4px;
+}
+
+.pan-move-bar {
+    text-align: center;
+    padding: 10px;
+}
+
+#logo-edit-bar {
+    width: 23%;
+}
+
+.service-category .ml15 {
+    margin-left: 15px;
+}
+
+#logo-editor-container .lSAction > .lSPrev {
+    left: 0;
+}
+
+#logo-editor-container .lSAction > .lSNext {
+    right: 0;
+}
+
+.logo-color-layers .panel-body{
+    max-height: 250px;
+    overflow: auto;
+}
+
+.blockUI h1 {
+    font-size: 18px
+}

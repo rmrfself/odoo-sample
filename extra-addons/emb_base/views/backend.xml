@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Configuration sub-menus -->
+    <menuitem id="menu_ecommerce_decoration_services" parent="website_sale.menu_ecommerce_settings" name="Website Decoration Services" action="act_window_decoration_service_category"/>
+    <!-- Catalog sub-menus -->
+    <menuitem id="menu_catalog_logos" name="Decoration Logos" parent="website_sale.menu_catalog" action="act_window_logo_manager" sequence="2"/>
+    <!-- Surcharges -->
+    <menuitem id="menu_surcharge" name="Surcharge" parent="website.menu_website_configuration" sequence="4"/>
+     <!-- Surcharge sub-menus -->
+    <menuitem id="menu_surcharge_logos" name="Logo Surcharges" parent="menu_surcharge" action="act_window_logo_surcharge" sequence="1"/>
+    <menuitem id="menu_surcharge_products" name="Product Surcharges" parent="menu_surcharge" action="act_window_product_surcharge" sequence="2"/>
+    <menuitem id="menu_surcharge_decoration_service" name="Decoration Service Surcharges" parent="menu_surcharge" action="act_window_decoration_service_surcharge" sequence="3"/>
+</odoo>

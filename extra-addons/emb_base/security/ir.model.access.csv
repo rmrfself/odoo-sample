@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_emb_base_category,emb_base.category,model_emb_base_category,,1,1,1,1
+access_emb_base_res_logo,emb_base.res_logo,model_emb_base_res_logo,,1,1,1,1
+access_emb_base_res_garment,emb_base.res_garment,model_emb_base_res_garment,,1,1,1,1
+access_emb_base_user_garment,emb_base.user_garment,model_emb_base_user_garment,,1,1,1,1
+access_emb_base_user_logo,emb_base.user_logo,model_emb_base_user_logo,,1,1,1,1

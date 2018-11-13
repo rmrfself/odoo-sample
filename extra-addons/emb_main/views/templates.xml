@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Add by zhang qinghua @1545916@qq.com -->
+<odoo>
+    <template id="assets_backend" name="emb_main_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/emb_main/static/src/less/emb_main.less"/>
+            <script type="text/javascript" src="/emb_main/static/src/js/emb_main.js"/>
+            <script type="text/javascript" src="/emb_main/static/src/js/jtl_service.js"/>
+        </xpath>
+    </template>
+</odoo>

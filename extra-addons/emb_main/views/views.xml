@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Begin: Hiden some disabled menu 2018/03/20 sheifei -->
+  <record id="make_invisible" model="res.groups">
+    <field name="name">Invisible</field>
+  </record>
+  <record model="ir.ui.menu" id="mail.mail_channel_menu_root_chat">
+    <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+  </record>
+  <record model="ir.ui.menu" id="sales_team.menu_base_partner">
+    <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+  </record>
+  <record model="ir.ui.menu" id="website.menu_website_configuration">
+    <field name="groups_id" eval="[(6,0,[ref('make_invisible')])]"/>
+  </record>
+  <!-- END: Hiden some disabled menu 2018/03/20 sheifei -->
+  <!-- Begin: Custom sale.order form view  2018/03/22 sheifei -->
+  <record model="ir.ui.view" id="view_st_sale_order_form">
+    <field name="name">emb_main.sale.order.form</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form" />
+    <field name="priority" eval="15"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="replace">
+        <field name="partner_id"/>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="partner_email"/>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="partner_title"/>
+      </xpath>
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="partner_addr"/>
+      </xpath>
+    </field>
+  </record>
+  <!-- Begin: Service List for every logo list / Keep consistent with order view -->
+  <record id="view_order_line_logo_list" model="ir.ui.view">
+    <field name="name">sale.order.lines</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']" position="replace">
+        <field name="order_lines_broker" widget="jtl_service" />
+        <div class="oe_clear"/>
+      </xpath>
+    </field>
+  </record>
+  <!-- End: Service List for every logo list -->
+  <!-- Begin: Custom sale.order form view  2018/03/22 sheifei -->
+  <!-- Begin: Service List for every logo list / Keep consistent with order view -->
+  <record id="view_st_service_list" model="ir.ui.view">
+    <field name="name">sale.order.logo.list</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_lines_broker']" position="after">
+        <notebook name="order_line_service_list" class="oe_read_only">
+          <page string="Services">
+            <field name="st_order_services" mode="kanban" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+              <kanban name="st_order_lines" string="Challenges" class="oe_background_grey order_line_logos">
+                <templates>
+                  <t t-name="kanban-box">
+                    <div class="oe_kanban_content">
+                      <table class="o_list_view table table-condensed table-striped">
+                        <thead>
+                          <tr>
+                            <td>Services</td>
+                            <td>Garment</td>
+                            <td>Design#</td>
+                            <td>Qty</td>
+                            <td>Ks</td>
+                            <td>Color</td>
+                            <td>Price</td>
+                            <td>Amt</td>
+                            <td>Discount</td>
+                            <td>Description</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Embroidery</td>
+                            <td>vFV-2W</td>
+                            <td>LG-185544</td>
+                            <td>9</td>
+                            <td>PCS</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>0.0</td>
+                            <td>0.0%</td>
+                            <td>Cross</td>
+                          </tr>
+                          <tr>
+                            <td>Embroidery</td>
+                            <td>vFV-2W</td>
+                            <td>LG-994367</td>
+                            <td>9</td>
+                            <td>PCS</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>0.0</td>
+                            <td>0.0%</td>
+                            <td>DEMO</td>
+                          </tr>
+                          <tr>
+                            <td>Embroidery</td>
+                            <td>vFV-2W</td>
+                            <td>LG-928571</td>
+                            <td>9</td>
+                            <td>PCS</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>0.0</td>
+                            <td>0.0%</td>
+                            <td>DEMO</td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total: 27</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>0.0</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </t>
+                </templates>
+              </kanban>
+            </field>
+            <div class="oe_clear"/>
+          </page>
+        </notebook>
+        <div class="oe_clear"/>
+      </xpath>
+    </field>
+  </record>
+  <!-- End: Service List for every logo list -->
+  <!-- Begin: Custom sale.order form view  2018/03/22 sheifei -->
+  <!-- Begin: Service List for every logo list / Keep consistent with order view -->
+  <record id="view_order_line_logo_detail_list" model="ir.ui.view">
+    <field name="name">sale.order.logo.detail.list</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_lines_broker']" position="after">
+         <notebook name="order_line_logo_list" class="oe_read_only">
+          <page string="LG-185544">
+            <field name="order_line_logos" mode="kanban" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}">
+              <kanban name="st_order_lines" string="Challenges" class="oe_background_grey order_line_logos">
+                <templates>
+                  <t t-name="kanban-box">
+                    <div class="oe_kanban_content">
+                      <table class="o_list_view table table-condensed">
+                      <thead>
+                        <tr>
+                          <td colspan="6">
+                          <table style="width: 65px;height:65px;background:#FFF;text-align:center;display:inline-block;margin:6px;" class="table table-bordered">
+                            <tr>
+                              <td colspan="2" style="font-size:10px;padding:5px;font-size:9px;line-height:0.9em;text-align:center;">S0502 <br/> Yellow</td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:10px;padding:0;height:35px;">1</td>
+                              <td style="background:yellow;width:40px;padding:0"></td>
+                            </tr>
+                          </table>
+                           <table style="width: 65px;height:65px;background:#FFF;text-align:center;display:inline-block;margin:6px;" class="table table-bordered">
+                            <tr>
+                              <td colspan="2" style="font-size:10px;padding:5px;font-size:9px;line-height:0.9em;text-align:center;">S0520 <br/> Red</td>
+                            </tr>
+                            <tr>
+                              <td style="font-size:10px;padding:0;height:35px;">2</td>
+                              <td style="background:red;width:40px;padding:0"></td>
+                            </tr>
+                          </table>
+                          </td>
+                        </tr>
+                      </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>vFV-2W</td>
+                            <td>Red</td>
+                            <td>L/Chest</td>
+                            <td>S:2 L:4</td>
+                            <td>6</td>
+                          </tr>
+                         <tr>
+                            <td>2</td>
+                            <td>vFV-2W</td>
+                            <td>Black</td>
+                            <td>L/Chest</td>
+                            <td>S:1 L:2</td>
+                            <td>3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </t>
+                </templates>
+              </kanban>
+            </field>
+            <div class="oe_clear"/>
+          </page>
+        </notebook>
+        <div class="oe_clear"/>
+      </xpath>
+    </field>
+  </record>
+  <!-- End: Logo List for every logo list -->
+</odoo>

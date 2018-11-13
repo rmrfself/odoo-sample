@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+  <t t-name="emb_portal.LogoUpload">
+    <div class="panel panel-default logo-panel">
+      <div class="panel-heading">Logo Panel</div>
+      <div class="panel-body">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Select Logo</a>
+              <form class="navbar-form navbar-right" role="search">
+                <button id="logo-upload-button" class="btn btn-sm btn-default">Upload</button>
+                <button id="logo-delete-button" class="btn-danger btn-sm disabled">Delete</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col-lg-8 nopadding">
+            <div class="input-group">
+              <select id="logo-type-select">
+                <option>AI</option>
+                <option>Tajima Dst</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-lg-2 nopadding ml10">
+            <button type="button" class="btn btn-sm btn-primary">
+              <i class="fa fa-search pr10" aria-hidden="true"></i> Search                                                                                                                                    
+            </button>
+          </div>
+        </div>
+        <!-- /input-group -->
+        <ul id="lightSlider"></ul>
+      </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.GarmentUpload">
+    <div class="panel panel-default garment-panel">
+      <div class="panel-heading">Garment Panel</div>
+      <div class="panel-body">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Select Product</a>
+              <form class="navbar-form navbar-right" role="search">
+                <button id="garment-upload-btn" class="btn btn-sm btn-default">Upload</button>
+                <button id="garment-delete-btn" class="btn btn-sm btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+        <div class="row">
+          <div class="col-lg-8 nopadding">
+            <div class="input-group">
+              <select id="garment-type-select"></select>
+            </div>
+          </div>
+          <div class="col-lg-2 nopadding ml10">
+            <button type="button" class="btn btn-sm btn-default">
+              <i class="fa fa-search pr10" aria-hidden="true"></i> Search                                                                                                                                    
+            </button>
+          </div>
+        </div>
+        <!-- /input-group -->
+        <div class="germent-panel">
+          <div class="table-responsive">
+            <table class="table table-bordered text-center mb0" id="garmentTable"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.GarmentColorPanel">
+    <div class="panel panel-default ml15 mt0">
+      <div class="panel-heading">Product Color Panel</div>
+      <div class="panel-body">
+        <div id="colorPalette">No Color Selected</div>
+      </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.GarmentCountPanel">
+    <div class="panel panel-default ml15 mt10">
+      <div class="panel-heading">Products Count</div>
+      <div class="panel-body">
+        <table id="product-sizes-table" class="table table-bordered text-center mb0">
+        </table>
+      </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.LogoLayersPanel">
+    <div class="panel panel-default ml15 mt10 logo-color-layers">
+      <div class="panel-heading">Logo Colors</div>
+      <div class="panel-body">
+        <table class="table table-bordered text-center mb0" id="logoColorLayers">
+          <tr>
+            <td>No Logo File Set</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.AddToCart">
+    <div class="row text-center ml15">
+      <label style="text-align:left;display:block;">Service Surcharges</label>
+      <div class="input-group pb15">
+        <select id="service-sc-select" class="selectpicker" multiple="multiple" data-selected-text-format="count"></select>
+        <!-- /input-group -->
+      </div>
+      <div class="form-group pb15">
+        <input type="text" class="form-control" id="service-surcharge-qty" placeholder="Surcharge Qty" />
+      </div>
+      <button id="addToCartBtn" type="button" class="btn btn-sm btn-success"  disabled="disabled" aria-label="Left Align" style="width: 100%;">
+        <span class="fa fa-cart fa-lg" aria-hidden="true">Add to cart</span>
+      </button>
+    </div>
+  </t>
+  <t t-name="emb_portal.CategoryProductSource">
+    <div class="panel panel-default">
+      <div class="panel-heading">Product Source</div>
+        <div class="panel-body">
+          <ul class="list-unstyled">
+              <li class="form-group" style="margin: 2px 0;">
+                <label class="control-label">
+                  <input type="radio" name="product_source" checked="checked"  value="customer_supplied" style="vertical-align: top;"/>
+                  <span>Customer Supplied</span>
+                </label>
+              </li>
+              <li class="form-group" style="margin: 2px 0;">
+                <label class="control-label">
+                  <input type="radio" name="product_source" value="stocked_goods" style="vertical-align: top;"/>
+                  <span>Stocked Goods</span>
+                </label>
+              </li>
+              <li class="form-group" style="margin: 2px 0;">
+                <label class="control-label">
+                  <input type="radio" name="product_source" value="custom_made" style="vertical-align: top;"/>
+                  <span>Custom Made</span>
+                </label>
+              </li>
+          </ul>
+        </div>
+    </div>
+  </t>
+  <t t-name="emb_portal.CategoryProductType">
+    <div class="panel panel-default">
+      <div class="panel-heading">Type of Products</div>
+      <t t-if="product_types">
+        <div class="panel-body">
+          <ul id="product_types_list" class="list-unstyled">
+            <t t-foreach="product_types" t-as="type">
+              <li class="form-group" style="margin: 2px 0;">
+                <label class="control-label">
+                  <t t-set="name" t-value="type['name']"/>
+                  <input type="checkbox" t-att-id="'cb' + type['id']" t-att-name="'product_type'" t-att-value="type['id']"/>
+                  <span t-esc="name"/>
+                </label>
+              </li>
+            </t>
+          </ul>
+        </div>
+      </t>
+    </div>
+  </t>
+  <t t-name="emb_portal.CategoryDecorationService">
+    <div class="panel panel-default">
+      <div class="panel-heading">Decoration Services</div>
+      <t t-if="decoration_services">
+        <div class="panel-body">
+          <ul class="list-unstyled">
+            <t t-foreach="decoration_services" t-as="service">
+              <li class="form-group" style="margin: 2px 0;">
+                <label class="control-label">
+                  <t t-set="name" t-value="service['name']"/>
+                  <t t-set="id" t-value="service['id']"/>
+                  <input type="radio" t-att-name="'decoration_service'" t-att-value="id"/>
+                  <span t-esc="name"/>
+                </label>
+              </li>
+            </t>
+          </ul>
+        </div>
+      </t>
+    </div>
+  </t>
+  <t t-name="website.logo.upload">
+    <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title">Upload Your Logo File</h3>
+          </div>
+          <div class="oe_slides_upload_loading text-center" style="display:none">
+            <h4>
+              <i class='fa fa-spinner fa-spin'></i> Uploading presentation...                                                                                      
+            </h4>
+          </div>
+          <div class="modal-body">
+            <form class="clearfix form-horizontal">
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <div class="img-thumbnail">
+                    <div class="o_slide_preview">
+                      <img src="/website_slides/static/src/img/document.png" id="logo-image" title="Content Preview" class="img-responsive"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <ul class="list-group">
+                    <li class="list-group-item active">
+                      <h5 class="list-group-item-heading">
+                        <label for="upload" class="control-label">Tajima Dst Or AI Image File</label>
+                      </h5>
+                      <input id="upload_logo_button" name="file" class="form-control" accept=".dst,.ai" type="file"/>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">File Name</label>
+                <div class="col-sm-9">
+                  <input id="file_name" placeholder="File Name" class="form-control" required="required"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">Image Width</label>
+                <div class="col-sm-9">
+                  <input id="image_width" placeholder="Image Width" class="form-control" required="required"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">Image Height</label>
+                <div class="col-sm-9">
+                  <input id="image_height" placeholder="Image Height" class="form-control" required="required"/>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">Size Unit</label>
+                <div class="col-sm-3">
+                  <label>
+                    <input type="radio" name="size_unit" checked="checked" value="mm" />:mm                                                                                                                              
+                  </label>
+                </div>
+                <div class="col-sm-3">
+                  <label>
+                    <input type="radio" name="size_unit" checked="checked" value="inch" />:inch                                                                                                                              
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="category_id" class="control-label col-sm-3">Category</label>
+                <div class="controls col-sm-9">
+                  <input id="category_id" type="hidden"/>
+                </div>
+              </div>
+              <canvas id="data_canvas" style="display: none;"></canvas>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-loading-text="Loading..." data-published="true" class="btn btn-primary save">Save</button>                        or                                                                                                            
+            <a href="#" data-dismiss="modal" aria-hidden="true">Discard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+  <t t-name="website.garment.upload">
+    <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 class="modal-title">Upload Your Product Image</h3>
+          </div>
+          <div class="oe_slides_upload_loading text-center" style="display:none">
+            <h4>
+              <i class='fa fa-spinner fa-spin'></i> Uploading presentation...                                                                                      
+            </h4>
+          </div>
+          <div class="modal-body">
+            <form class="clearfix form-horizontal">
+              <div class="form-group">
+                <div class="col-sm-4">
+                  <div class="img-thumbnail">
+                    <div class="o_slide_preview">
+                      <img src="/website_slides/static/src/img/document.png" id="garment-image" title="Content Preview" class="img-responsive"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-8">
+                  <ul class="list-group">
+                    <li class="list-group-item active">
+                      <h5 class="list-group-item-heading">
+                        <label for="upload" class="control-label">Image File</label>
+                      </h5>
+                      <input id="upload_garment_button" name="file" class="form-control" accept="image/*" type="file"/>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">Colors</label>
+                <div class="col-sm-2">
+                  <input type='text' id="custom_garment_color" />
+                </div>
+                <div class="col-sm-7" id="garment_colors">
+                  <a>Clear all</a>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name" class="control-label col-sm-3">Size Meaturement</label>
+                <div class="col-sm-9">
+                  <select id="product_size" name="product_size">
+                    <option value="0">US Size</option>
+                    <option value="1">European Size</option>
+                    <option value="2">Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="category_id" class="control-label col-sm-3">Category</label>
+                <div class="controls col-sm-9">
+                  <input id="category_id" type="hidden"/>
+                </div>
+              </div>
+              <canvas id="data_canvas" style="display: none;"></canvas>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-loading-text="Loading..." data-published="true" class="btn btn-primary save">Save</button>                        or                                                                                                            
+            <a href="#" data-dismiss="modal" aria-hidden="true">Discard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </t>
+</templates>

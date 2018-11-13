@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Category Data -->
+        <record id="product_source_customer_supplied" model="emb_base.product_source">
+            <field name="name">Customer Supplied</field>
+        </record>
+        <record id="product_source_stocked_goods" model="emb_base.product_source">
+            <field name="name">Stocked Goods</field>
+        </record>
+        <record id="product_source_custom_made" model="emb_base.product_source">
+            <field name="name">Custom Made</field>
+        </record>
+    </data>
+</odoo>

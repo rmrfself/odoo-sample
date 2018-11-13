@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="StServiceList" class="st_service_list">
+        <table id="st_service_list" class="o_list_view table table-condensed table-striped">
+            <thead>
+                <tr>
+                    <td>Brand</td>
+                    <td>Style</td>
+                    <td>Color</td>
+                    <td>Picture</td>
+                    <td>Package</td>
+                    <td>Location</td>
+                    <td>Size+Qty</td>
+                    <td>Services</td>
+                    <td>Quantiy</td>
+                    <td>Description</td>
+                    <td>Design#</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </t>
+</templates>

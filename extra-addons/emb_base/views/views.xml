@@ -1,0 +1,121 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="res_logo_tree_view">
+      <field name="name">Logo Manger</field>
+      <field name="model">emb_base.res_logo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="id"/>
+          <field name="file_name"/>
+          <field name="category_id"/>
+          <field name="image_width"/>
+          <field name="image_height"/>
+          <field name="size_unit"/>
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="res_logo_form_view">
+      <field name="name">Logo Manager</field>
+      <field name="model">emb_base.res_logo</field>
+      <field name="arch" type="xml">
+        <form string="Decoration Service Categories">
+          <sheet>
+            <div class="oe_left">
+              <group>
+                <field name="file_name"/>
+                <field name="image_width"/>
+                <field name="image_height"/>
+                <field name="size_unit"/>
+                <field name="image"/>
+                <field name="svg_image"/>
+                <field name="category_id"/>
+              </group>
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record model="ir.actions.act_window" id="act_window_logo_manager">
+      <field name="name">Logo Manager</field>
+      <field name="res_model">emb_base.res_logo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- explicit list view definition -->
+    <record id="decoration_service_category_form_view" model="ir.ui.view">
+      <field name="name">decoration.service.category.form</field>
+      <field name="model">decoration.service.category</field>
+      <field name="arch" type="xml">
+        <form string="Decoration Service Categories">
+          <sheet>
+            <div class="oe_left">
+              <group>
+                <field name="name"/>
+                <field name="parent_id"/>
+                <field name="sequence"/>
+              </group>
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="decoration_service_category_tree_view" model="ir.ui.view">
+      <field name="name">decoration.service.category.tree</field>
+      <field name="model">decoration.service.category</field>
+      <field name="field_parent" eval="False"/>
+      <field name="arch" type="xml">
+        <tree string="Decoration Service Categories">
+          <field name="sequence" invisible="1"/>
+          <field name="display_name"/>
+        </tree>
+      </field>
+    </record>
+    <record id="act_window_decoration_service_category" model="ir.actions.act_window">
+      <field name="name">Decoration Service Categories</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">decoration.service.category</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">            Click to define a new category.          </p>
+        <p>            Categories are used to browse your products through the            touchscreen interface.          </p>
+      </field>
+    </record>
+    <record id="act_window_logo_surcharge" model="ir.actions.act_window">
+      <field name="name">Decoration Logo Surcharge</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">emb_base.decoration_logo_surcharge</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click to define a new logo surcharge.</p>
+        <p>Logo surcharges is detimined by both decoration service type and single logo.</p>
+      </field>
+    </record>
+    <record id="act_window_product_surcharge" model="ir.actions.act_window">
+      <field name="name">Decoration Product Surcharge</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">emb_base.product_surcharge</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click to define a new product surcharge.</p>
+        <p>Logo surcharges is detimined by product category.</p>
+      </field>
+    </record>
+    <record id="act_window_decoration_service_surcharge" model="ir.actions.act_window">
+      <field name="name">Decoration Service Surcharge</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">emb_base.decoration_service_surcharge</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">Click to define a new decoration service surcharge.</p>
+        <p>Logo surcharges is detimined decoration service categories.</p>
+      </field>
+    </record>
+  </data>
+</odoo>

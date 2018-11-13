@@ -1,0 +1,164 @@
+<odoo>
+  <data>
+    <template id="assets_frontend" inherit_id="website.assets_frontend" name="Shop">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" href="/emb_portal/static/src/css/lightslider.css" />
+        <link rel="stylesheet" href="/emb_portal/static/src/css/jquery-editable-select.min.css" />
+        <link rel="stylesheet" href="/emb_portal/static/src/css/bootstrap-select.min.css" />
+        <script type="text/javascript" src="/emb_portal/static/src/js/lightslider.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/fabric.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/spectrum.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/bootstrap-slider.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/jquery-editable-select.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/html2canvas.min.js"></script>
+        <script type="text/javascript" src="/emb_portal/static/src/js/bootbox.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.0.0/css/bootstrap-slider.min.css" />
+      </xpath>
+    </template>
+    <template id="portal_layout" name="Portal Layout">
+      <t t-call="website.layout">
+        <t t-set="head">
+          <link rel="stylesheet" href="/emb_portal/static/src/css/main.css" />
+          <script type="text/javascript" src="/emb_portal/static/src/js/website_logo_edit.js"></script>
+        </t>
+        <div id="wrap">
+          <t t-set="additional_title">订单系统</t>
+          <div class="container service-category">
+            <div class="row">
+              <div class="col-lg-2 col-sm-2 text-muted">
+                <div id="category-bar"></div>
+              </div>
+              <div class="col-lg-10 col-sm-10 nopadding">
+                <div class="panel content-panel">
+                  <div class="row mt0">
+                    <div id="logo-editor-container">
+                      <div id="op-bar" class="col-lg-3 nopadding"></div>
+                      <div id="op-content" class="col-lg-6 ml15 nopadding">
+                        <div id="logo-editor">
+                          <canvas id="logo-canvas" width="100%" height="100%"></canvas>
+                          <div id="grouped-garments"></div>
+                        </div>
+                      </div>
+                      <div id="logo-edit-bar" class="col-lg-3 nopadding"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+    <template id="cart_list" name="Cart List">
+      <t t-call="website.layout">
+        <t t-set="head">
+          <link rel="stylesheet" href="/emb_portal/static/src/css/bootstrap-datepicker.min.css" />
+          <link rel="stylesheet" href="/emb_portal/static/src/css/cart_list.css" />
+          <script type="text/javascript" src="/emb_portal/static/src/js/bootstrap-datepicker.min.js"></script>
+          <script type="text/javascript" src="/emb_portal/static/src/js/website_cart_list.js"></script>
+        </t>
+        <div id="wrap">
+          <t t-set="additional_title">Cart</t>
+          <div class="container cart-list">
+            <div class="row">
+              <div class="col-12">
+                <table class="table table-bordered text-center">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Item</td>
+                      <td>Type</td>
+                      <td>Style</td>
+                      <td>Placement</td>
+                      <td>Color</td>
+                      <td>Service Surcharge</td>
+                      <td>Size S</td>
+                      <td>Size M</td>
+                      <td>Size L</td>
+                      <td>Size XL</td>
+                      <td>Unit Price</td>
+                      <td>Discount</td>
+                      <td colspan='2'>Action</td>
+                    </tr>
+                  </thead>
+                  <tbody id="cart-list-table"></tbody>
+                </table>
+              </div>
+            </div>
+            <div id="form-info-body" style="display:none;">
+              <div class="form-inline">
+                <div class="form-group" style="margin-left:-15px;margin-right:20px;">
+                  <label for="po">Select Company</label>
+                  <select class="selectpicker show-tick" title="Buyer">
+                    <option>A Company</option>
+                    <option>B Company</option>
+                    <option>C Company</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-right:20px">
+                  <label for="po">P.O.#</label>
+                  <input id="po" type="text" class="form-control" placeholder="P.O.#" />
+                </div>
+                <div class="form-group">
+                  <label for="jobname">Job Name</label>
+                  <input id="jobname" type="text" class="form-control" placeholder="Job Name" />
+                </div>
+              </div>
+              <div class="row">
+                <h4 style="margin: 15px 0;">Product Shipment Information</h4>
+                <div class="form-inline">
+                  <div class="form-group col-sm-8" style="margin: 10px 0;padding-left:0;">
+                    <label class="col-sm-2" style="padding-left:0;">Shipper</label>
+                    <select class="selectpicker show-tick" title="Shipper">
+                      <option>A Company</option>
+                      <option>B Company</option>
+                      <option>C Company</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-inline">
+                  <div class="form-group col-sm-8" style="margin: 10px 0;padding-left:0;">
+                    <label class="col-sm-2" style="padding-left:0;">Shipping Date</label>
+                    <div class='input-group date' data-provide="datepicker">
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-inline">
+                  <div class="form-group col-sm-8" style="margin: 10px 0;padding-left:0;">
+                    <label class="col-sm-2" style="padding-left:0;">Requere At</label>
+                    <div class='input-group date' data-provide="datepicker">
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                        <span class="fa fa-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group">
+                  <label for="comment">Message:</label>
+                  <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-primary">Ask For Quotation</button>
+                    <button type="submit" class="btn btn-warning">Proceed To Order</button>
+                    <button type="submit" class="btn btn-default">Return Order</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </t>
+    </template>
+  </data>
+</odoo>

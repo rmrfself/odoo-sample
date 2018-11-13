@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_emb_main_configuration" sequence="1" name="ST Orders" groups="website.group_website_designer" web_icon="website,static/description/icon_admin.png"/>
+    <menuitem id="menu_emb_main_sales" name="Sales" parent="emb_main.menu_emb_main_configuration" sequence="2"/>
+    <menuitem id="menu_emb_main_sales_customers" name="Customers" action="base.action_partner_customer_form" parent="emb_main.menu_emb_main_sales" sequence="3"/>
+    <menuitem id="menu_emb_main_sales_quotations" name="Quotations" action="sale.action_quotations" parent="emb_main.menu_emb_main_sales" sequence="4"/>
+    <menuitem id="menu_emb_main_sales_orders" name="Sales Orders" action="sale.action_orders" parent="emb_main.menu_emb_main_sales" sequence="5"/>
+    <menuitem id="menu_emb_main_sales_products" name="Products" action="product.product_normal_action_sell" parent="emb_main.menu_emb_main_sales" sequence="6"/>
+    
+    <menuitem id="menu_emb_main_sales_product_variants" name="Product Variants" action="product.variants_action" parent="emb_main.menu_emb_main_sales" sequence="7"/>
+    
+    <menuitem id="menu_emb_main_invoicing" name="Invoicing" parent="emb_main.menu_emb_main_configuration" sequence="8"/>
+    <menuitem id="menu_emb_main_invoicing_sales" name="Sales to Invoice" action="sale.action_orders_to_invoice" parent="emb_main.menu_emb_main_invoicing" sequence="9"/>
+    
+    <menuitem id="menu_emb_main_reports" name="Reports" parent="emb_main.menu_emb_main_configuration" sequence="10"/>
+    <menuitem id="menu_emb_main_reports_sales" name="Sales" parent="emb_main.menu_emb_main_reports" action="sale.action_order_report_so_salesteam" sequence="11"/>
+
+    <menuitem id="menu_emb_main_manage_configuration" name="Configuration" parent="emb_main.menu_emb_main_configuration" sequence="12"/>
+    <menuitem id="menu_emb_main_manage_configuration_settings" name="Settings" parent="emb_main.menu_emb_main_manage_configuration" action="website.action_website_configuration" sequence="13"/>
+    <menuitem id="menu_emb_main_manage_configuration_products" name="Products" parent="emb_main.menu_emb_main_manage_configuration" sequence="14"/>
+
+    <menuitem id="menu_emb_main_manage_configuration_product_attr" name="Attributes" parent="emb_main.menu_emb_main_manage_configuration_products" action="website_sale.action_orders_ecommerce" sequence="15"/>
+    <menuitem id="menu_emb_main_manage_configuration_product_av" name="Attribute Values" parent="emb_main.menu_emb_main_manage_configuration_products" action="website_sale.action_orders_ecommerce" sequence="16"/>
+    <menuitem id="menu_emb_main_manage_configuration_product_uom" name="Unit of Measure" parent="emb_main.menu_emb_main_manage_configuration_products" action="website_sale.action_orders_ecommerce" sequence="17"/>
+
+    <menuitem id="menu_emb_main_sales_team" name="Sales Teams" parent="emb_main.menu_emb_main_configuration" action="website_sale.action_orders_ecommerce" sequence="18"/>
+</odoo>

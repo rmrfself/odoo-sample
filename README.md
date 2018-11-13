@@ -4,11 +4,7 @@ For localhost， input below link in your browser:
 
 http://localhost:8069/web/database/manager
 
-
-
-get the database files(including attachment files)
-
-please contact to mike for this database.
+![](https://github.com/rmrfself/odoo-sample/blob/master/odoo-how-to-recover-db.gif)
 
 ### how to launch your server?
 
@@ -34,7 +30,9 @@ In the project root, run below command directly:
 ./odoo-bin --db_user odoo_master --db_password db_password --db_host localhost --db_port 5432 --addons-path="addons,extra-addons" --db-filter=odoo_develop  --save --dev=reload
 ```
 
-### 如何还原数据库
+### Page screenshots(页面截屏)
+
+
 
 
 
